@@ -15,7 +15,6 @@
 		D4FD940A2A6B89D300D9AC2C /* GithubUserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FD94092A6B89D300D9AC2C /* GithubUserUITests.swift */; };
 		D4FD940C2A6B89D300D9AC2C /* GithubUserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FD940B2A6B89D300D9AC2C /* GithubUserUITestsLaunchTests.swift */; };
 		D4FD941B2A6BA97300D9AC2C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FD941A2A6BA97300D9AC2C /* User.swift */; };
-		D4FD941D2A6BAD4400D9AC2C /* apiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FD941C2A6BAD4400D9AC2C /* apiCall.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,6 @@
 		D4FD94092A6B89D300D9AC2C /* GithubUserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserUITests.swift; sourceTree = "<group>"; };
 		D4FD940B2A6B89D300D9AC2C /* GithubUserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D4FD941A2A6BA97300D9AC2C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D4FD941C2A6BAD4400D9AC2C /* apiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiCall.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 				D4FD93F22A6B89D300D9AC2C /* Assets.xcassets */,
 				D4FD93F42A6B89D300D9AC2C /* Preview Content */,
 				D4FD941A2A6BA97300D9AC2C /* User.swift */,
-				D4FD941C2A6BAD4400D9AC2C /* apiCall.swift */,
 			);
 			path = GithubUser;
 			sourceTree = "<group>";
@@ -265,7 +262,6 @@
 			files = (
 				D4FD941B2A6BA97300D9AC2C /* User.swift in Sources */,
 				D4FD93F12A6B89D300D9AC2C /* MainView.swift in Sources */,
-				D4FD941D2A6BAD4400D9AC2C /* apiCall.swift in Sources */,
 				D4FD93EF2A6B89D300D9AC2C /* GithubUserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

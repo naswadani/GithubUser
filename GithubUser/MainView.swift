@@ -1,5 +1,6 @@
 import SwiftUI
 
+
 struct MainView: View {
     @State private var githubUsername: String = ""
     
@@ -7,17 +8,15 @@ struct MainView: View {
         NavigationView {
             VStack {
                 Spacer()
+                Image("github-mark")
                 TextField("Search Github Username", text: $githubUsername)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                Image(systemName: "heart.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
+                    .padding(50)
                 Spacer()
                 NavigationLink(destination: DestinationPage(username: githubUsername), label: {
-                    Text("Next Screen")
+                    Text("Search")
                         .bold()
-                        .foregroundColor(.red)
+                        .foregroundColor(.black)
                         .frame(width: 150, height: 50)
                         .background(Color.yellow)
                         .cornerRadius(20)
@@ -28,8 +27,9 @@ struct MainView: View {
             }
             .navigationTitle("Main View")
             .navigationBarTitleDisplayMode(.inline)
-        }
+        }.accentColor(Color(.label))
     }
+
     
     
 }
@@ -39,24 +39,34 @@ struct DestinationPage: View {
     @State private var userData : User?
     
     var body: some View {
-        VStack{
-            ZStack {
-                Rectangle()
-                    .frame(height: 400)
-                    .cornerRadius(30)
-                    .padding()
-                    .foregroundColor(.red)
-                
-                if userData == nil {
-                    Text("Loading...")
-                } else if let userData = userData {
-                    Text(userData.login).font(.system(size: 30,weight: .bold)).foregroundColor(.white)
-                }
-            }
-            Button("Github", action: openLink)
-        }.onAppear(perform: {
-            loadData()
-        })
+        ScrollView{
+            VStack{
+                ZStack {
+                    Rectangle()
+                        .frame(height: 300)
+                        .cornerRadius(30)
+                        .padding()
+                        .foregroundColor(.yellow)
+                    VStack{
+                        if userData == nil {
+                            Text("Loading...")
+                        } else if let userData = userData {
+                            AsyncImage(url: URL(string: "\(userData.avatar_url)")){image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: 190, height: 190).cornerRadius(30)
+                            Text(userData.login).font(.system(size: 30,weight: .bold)).foregroundColor(.white)
+                        }
+                        
+                    }
+                }.padding()
+                Button("Github", action: openLink).frame(width: 250, height: 50).background(.black).foregroundColor(.white).cornerRadius(25).padding().animation(.easeIn(duration: 0.8))
+            }.onAppear(perform: {
+                loadData()
+            })
+        }
     }
     
     private func loadData() {
@@ -97,6 +107,14 @@ struct DestinationPage: View {
         }
     }
 }
+
+extension UIImageView {
+    func makeRounded() {
+        let radius = self.frame.width/2.0
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+ }
 
 
 struct Previews_MainView_Previews: PreviewProvider {
